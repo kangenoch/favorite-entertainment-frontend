@@ -3,8 +3,19 @@ import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { Logout } from "./Logout";
 import { Modal } from "./Modal";
+import { useState, useEffect } from "react";
 
 export function Content() {
+  const [isModalShowVisible, setIsModalShowVisible] = useState(false);
+
+  const handleShowModal = () => {
+    setIsModalShowVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalShowVisible(false);
+  };
+
   return (
     <div>
       <Signup />
@@ -15,7 +26,8 @@ export function Content() {
       <p>&nbsp;</p>
       <h1>Welcome to React!</h1>
       <p>&nbsp;</p>
-      <Modal show={true}>
+      <button onClick={handleShowModal}>Show Modal</button>
+      <Modal show={isModalShowVisible} onClose={handleCloseModal}>
         <p>Hello</p>{" "}
       </Modal>
     </div>
