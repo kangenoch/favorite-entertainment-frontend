@@ -19,7 +19,9 @@ export function Login() {
         console.log(response.data);
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
         localStorage.setItem("jwt", response.data.jwt);
-        localStorage.setItem("email", params.get("email"));
+        localStorage.setItem("email", response.data.email);
+        localStorage.setItem("user_id", response.data.user_id);
+        localStorage.setItem("user_name", response.data.user_name);
         event.target.reset();
         window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
       })
@@ -36,6 +38,8 @@ export function Login() {
           {/* jwt is undefined */}
 
           {localStorage.removeItem("email")}
+          {localStorage.removeItem("user_id")}
+          {localStorage.removeItem("user_name")}
           <div id="login">
             <h1>Login</h1>
             <ul>
@@ -57,7 +61,7 @@ export function Login() {
       ) : (
         <>
           {/* jwt is defined */}
-          Hello, {localStorage.email}
+          Hello, {localStorage.user_name}! Your id is #{localStorage.user_id}.
         </>
       )}
     </>

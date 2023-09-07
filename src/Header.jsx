@@ -4,6 +4,7 @@ export function Header() {
       <nav>
         <a href="#">Home</a> | <a href="#">Link</a>
       </nav>
+      <p>&nbsp;</p>
     </header>
   );
 }

@@ -17,9 +17,7 @@ export function FavoritesIndex(props) {
       {props.favorites.map((favorite) => (
         <>
           <div>
-            <li key={favorite.id}>
-              <h3>{favorite.item_id}</h3>
-            </li>
+            <li key={favorite.id}>Item_id: {favorite.item_id}</li>
           </div>
           <p>&nbsp;</p>
         </>

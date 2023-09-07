@@ -10,8 +10,24 @@ export function Logout() {
   };
 
   return (
-    <a href="#" onClick={handleClick}>
-      Logout
-    </a>
+    <>
+      {localStorage.jwt === undefined ? (
+        <>
+          {/* jwt is undefined */}
+
+          {localStorage.removeItem("email")}
+          {localStorage.removeItem("user_id")}
+          {localStorage.removeItem("user_name")}
+        </>
+      ) : (
+        <>
+          {/* jwt is defined */}
+
+          <a href="#" onClick={handleClick}>
+            Logout
+          </a>
+        </>
+      )}
+    </>
   );
 }

@@ -28,6 +28,8 @@ export function Signup() {
           {/* jwt is undefined */}
 
           {localStorage.removeItem("email")}
+          {localStorage.removeItem("user_id")}
+          {localStorage.removeItem("user_name")}
 
           <div id="signup">
             <h1>Signup</h1>
