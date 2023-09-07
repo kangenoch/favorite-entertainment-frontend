@@ -14,11 +14,16 @@ export function ItemShowOne(props) {
     });
   };
 
+  useEffect(() => {
+    handleIndexOneItem(props.item_id);
+  }, []); // [] means only run once
+
   return (
     <>
-      <h3>Item_id: {props.item_id}</h3>
-      <button onClick={() => handleIndexOneItem(props.item_id)}>Show Item</button>
-      {() => handleIndexOneItem(props.item_id)}
+      {/* <h3>Item_id: {props.item_id}</h3> */}
+      {/* <button onClick={() => handleIndexOneItem(props.item_id)}>Show Item</button> */}
+      {/* {() => handleIndexOneItem(props.item_id)} */}
+
       <h3>{item.name}</h3>
       <img src={item.image_url} width="200" />
       <br />
