@@ -26,6 +26,9 @@ export function Signup() {
       {localStorage.jwt === undefined ? (
         <>
           {/* jwt is undefined */}
+
+          {localStorage.removeItem("email")}
+
           <div id="signup">
             <h1>Signup</h1>
             <ul>

@@ -14,7 +14,7 @@ export function ItemsIndex(props) {
 
       {props.items.map((item) => (
         <>
-          <div>
+          <div key={item.id}>
             <h3>{item.name}</h3>
 
             <img src={item.image_url} width="200" />
@@ -24,9 +24,7 @@ export function ItemsIndex(props) {
             {item.description}
             <br />
             {item.price}
-          </div>
-
-          <div>
+            <br />
             <button onClick={() => props.onShowModal(item)}>Show Item</button>
           </div>
           <p>&nbsp;</p>
