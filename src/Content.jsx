@@ -64,7 +64,8 @@ export function Content() {
       <p>&nbsp;</p>
       <button onClick={handleShowItem}>Show Modal</button>
       <Modal show={isModalShowVisible} onClose={handleCloseItem}>
-        <p>Hello</p>
+        <p>{currentItem.name}</p>
+        <p>{currentFavorite.name}</p>
       </Modal>
       <p>&nbsp;</p>
       <FavoritesIndex favorites={favorites} onShowFavorite={handleShowFavorite} />

@@ -31,7 +31,7 @@ export function ItemsIndex(props) {
                 <br />
                 {item.price}
                 <br />
-                <button onClick={() => props.onShowModal(item)}>Show Item</button>
+                <button onClick={() => props.onShowItem(item)}>Show Item</button>
               </li>
             </div>
             <p>&nbsp;</p>
