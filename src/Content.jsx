@@ -7,6 +7,7 @@ import { Modal } from "./Modal";
 import { ItemsIndex } from "./ItemsIndex";
 import { useState, useEffect } from "react";
 import { FavoritesIndex } from "./FavoritesIndex";
+import { ItemsShow } from "./ItemsShow";
 
 export function Content() {
   const [isModalShowVisible, setIsModalShowVisible] = useState(false);
@@ -64,8 +65,7 @@ export function Content() {
       <p>&nbsp;</p>
       <button onClick={handleShowItem}>Show Modal</button>
       <Modal show={isModalShowVisible} onClose={handleCloseItem}>
-        <p>{currentItem.name}</p>
-        <p>{currentFavorite.name}</p>
+        <ItemsShow item={currentItem} />
       </Modal>
       <p>&nbsp;</p>
       <FavoritesIndex favorites={favorites} onShowFavorite={handleShowFavorite} />
@@ -74,3 +74,6 @@ export function Content() {
     </div>
   );
 }
+
+//<p>{currentItem.name}</p>
+//<p>{currentFavorite.name}</p>

@@ -2,11 +2,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unreachable */
 import { useState } from "react";
+import { ItemShowOne } from "./ItemShowOne";
 
 export function FavoritesIndex(props) {
   console.log(props);
   const [searchFilter, setSearchFilter] = useState("");
   // .filter((favorite) => favorite.user_id === props.currentUser.id)
+
   return (
     <>
       <div>
@@ -20,8 +22,9 @@ export function FavoritesIndex(props) {
           <>
             <div>
               <li key={favorite.id}>Item_id: {favorite.item_id}</li>
-              <button onClick={() => props.onShowItem(favorite)}>Show Item</button>
+              <ItemShowOne item_id={favorite.item_id} />
             </div>
+
             <p>&nbsp;</p>
           </>
         ))}
