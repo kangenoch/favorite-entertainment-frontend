@@ -6,11 +6,16 @@ import { Logout } from "./Logout";
 import { Modal } from "./Modal";
 import { ItemsIndex } from "./ItemsIndex";
 import { useState, useEffect } from "react";
+import { FavoritesIndex } from "./FavoritesIndex";
 
 export function Content() {
-  const [items, setItems] = useState([]);
   const [isModalShowVisible, setIsModalShowVisible] = useState(false);
+
+  const [items, setItems] = useState([]);
   const [currentItem, setCurrentItem] = useState({});
+
+  const [favorites, setFavorites] = useState([]);
+  const [currentFavorite, setCurrentFavorite] = useState({});
 
   const handleIndexItems = () => {
     axios.get("http://localhost:3000/items.json").then((response) => {
@@ -19,17 +24,32 @@ export function Content() {
     });
   };
 
-  const handleShowModal = (item) => {
+  const handleShowItem = (item) => {
     setIsModalShowVisible(true);
     setCurrentItem(item);
   };
 
-  const handleCloseModal = () => {
+  const handleCloseItem = () => {
+    setIsModalShowVisible(false);
+  };
+
+  const handleIndexFavorites = () => {
+    axios.get("http://localhost:3000/favorites.json").then((response) => {
+      console.log(response.data);
+      setFavorites(response.data);
+    });
+  };
+  const handleShowFavorite = (favorite) => {
+    setIsModalShowVisible(true);
+    setCurrentFavorite(favorite);
+  };
+  const handleCloseFavorite = () => {
     setIsModalShowVisible(false);
   };
 
   useEffect(() => {
     handleIndexItems();
+    handleIndexFavorites();
   }, []);
 
   return (
@@ -42,13 +62,14 @@ export function Content() {
       <p>&nbsp;</p>
       <h1>Favorite Entertainment App</h1>
       <p>&nbsp;</p>
-      <button onClick={handleShowModal}>Show Modal</button>
-      <Modal show={isModalShowVisible} onClose={handleCloseModal}>
+      <button onClick={handleShowItem}>Show Modal</button>
+      <Modal show={isModalShowVisible} onClose={handleCloseItem}>
         <p>Hello</p>
       </Modal>
       <p>&nbsp;</p>
-
-      <ItemsIndex items={items} onShowModal={handleShowModal} />
+      <FavoritesIndex favorites={favorites} onShowFavorite={handleShowFavorite} />
+      <p>&nbsp;</p>
+      <ItemsIndex items={items} onShowItem={handleShowItem} />
     </div>
   );
 }
