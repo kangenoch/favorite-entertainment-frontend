@@ -12,10 +12,10 @@ export function FavoritesIndex(props) {
   return (
     <>
       <div>
-        <h2>Favorites Index</h2>
+        <h2>Here are your favorite movies:</h2>
       </div>
-      Search Filter:
-      <input type="text" value={searchFilter} onChange={(e) => setSearchFilter(e.target.value)} list="favorites" />
+      {/* Search Filter:
+      <input type="text" value={searchFilter} onChange={(e) => setSearchFilter(e.target.value)} list="favorites" /> */}
       {props.favorites
         .filter((favorite) => favorite.user_id == localStorage.getItem("user_id"))
         .map((favorite) => (

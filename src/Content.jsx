@@ -55,15 +55,16 @@ export function Content() {
 
   return (
     <div>
+      <h1>Favorite Entertainment App</h1>
+      <p>&nbsp;</p>
       <Signup />
       <p>&nbsp;</p>
       <Login />
       <p>&nbsp;</p>
       <Logout />
       <p>&nbsp;</p>
-      <h1>Favorite Entertainment App</h1>
-      <p>&nbsp;</p>
-      <button onClick={handleShowItem}>Show Modal</button>
+
+      <button onClick={handleShowItem}>Test Modal</button>
       <Modal show={isModalShowVisible} onClose={handleCloseItem}>
         <ItemsShow item={currentItem} />
       </Modal>

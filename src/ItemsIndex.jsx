@@ -10,7 +10,7 @@ export function ItemsIndex(props) {
   return (
     <>
       <div>
-        <h2>Movies Index</h2>
+        <h2>The Movie Database</h2>
       </div>
       Search Filter:
       <input type="text" value={searchFilter} onChange={(e) => setSearchFilter(e.target.value)} list="items" />
