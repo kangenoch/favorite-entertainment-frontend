@@ -13,9 +13,7 @@ export function ItemsIndex(props) {
       <div>
         <h2>The Movie Database</h2>
       </div>
-      Search Filter:
-      <input type="text" value={searchFilter} onChange={(e) => setSearchFilter(e.target.value)} list="items" />
-      <br />
+
       {/* Now on, comments refer bottom codes.*/}
       {/* grid starts */}
       <div class="container text-center">
@@ -25,29 +23,64 @@ export function ItemsIndex(props) {
           <div class="col">&nbsp;</div>
           {/* starting main col-8 */}
           <div class="col-8">
-            {props.items
-              .filter((item) => item.name.toLowerCase().includes(searchFilter.toLowerCase()))
-              .map((item) => (
-                <>
-                  <div>
-                    <li key={item.id}>
-                      <h3>{item.name}</h3>
+            {/* starting carousel */}
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+              {/* starting inner carousel */}
+              <div class="carousel-inner">
+                Search Filter:
+                <input
+                  type="text"
+                  value={searchFilter}
+                  onChange={(e) => setSearchFilter(e.target.value)}
+                  list="items"
+                />
+                <br />
+                <div class="carousel-item active" data-bs-interval="100">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpbI5MAGTZYd3HcFk1AsXe78Gu2lW0lVXw4Q&usqp=CAU"
+                    class="d-block w-100"
+                    alt="Movie"
+                  />
+                </div>
+                {props.items
+                  .filter((item) => item.name.toLowerCase().includes(searchFilter.toLowerCase()))
+                  .map((item) => (
+                    <>
+                      <div class="carousel-item" data-bs-interval="2000">
+                        <h3>{item.name}</h3>
 
-                      <img src={item.image_url} width="200" />
+                        {/* <img src={item.image_url} width="200" /> */}
 
-                      <br />
-                      <b>Genre: {item.category}</b>
-                      <br />
-                      {item.description}
-                      <br />
-                      {item.price}
-                      <br />
-                      <button onClick={() => props.onShowItem(item)}>Show Item</button>
-                    </li>
-                  </div>
-                  <p>&nbsp;</p>
-                </>
-              ))}
+                        <button onClick={() => props.onShowItem(item)}>
+                          <img src={item.image_url} class="d-block w-100" alt="..." />
+                        </button>
+                      </div>
+                    </>
+                  ))}
+                {/* closing inner carousel */}
+              </div>
+              {/* starting control buttons */}
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                {/* closing control buttons */}
+              </button>
+              {/* closing carousel */}
+            </div>
             {/* closing main col-8 */}
           </div>
           {/* adding empty column */}
