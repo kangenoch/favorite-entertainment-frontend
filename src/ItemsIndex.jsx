@@ -14,29 +14,38 @@ export function ItemsIndex(props) {
       </div>
       Search Filter:
       <input type="text" value={searchFilter} onChange={(e) => setSearchFilter(e.target.value)} list="items" />
-      {props.items
-        .filter((item) => item.name.toLowerCase().includes(searchFilter.toLowerCase()))
-        .map((item) => (
-          <>
-            <div>
-              <li key={item.id}>
-                <h3>{item.name}</h3>
+      <br />
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">&nbsp;</div>
+          <div class="col-8">
+            {props.items
+              .filter((item) => item.name.toLowerCase().includes(searchFilter.toLowerCase()))
+              .map((item) => (
+                <>
+                  <div>
+                    <li key={item.id}>
+                      <h3>{item.name}</h3>
 
-                <img src={item.image_url} width="200" />
+                      <img src={item.image_url} width="200" />
 
-                <br />
-                <b>Genre: {item.category}</b>
-                <br />
-                {item.description}
-                <br />
-                {item.price}
-                <br />
-                <button onClick={() => props.onShowItem(item)}>Show Item</button>
-              </li>
-            </div>
-            <p>&nbsp;</p>
-          </>
-        ))}
+                      <br />
+                      <b>Genre: {item.category}</b>
+                      <br />
+                      {item.description}
+                      <br />
+                      {item.price}
+                      <br />
+                      <button onClick={() => props.onShowItem(item)}>Show Item</button>
+                    </li>
+                  </div>
+                  <p>&nbsp;</p>
+                </>
+              ))}
+          </div>
+          <div class="col">&nbsp;</div>
+        </div>
+      </div>
     </>
   );
 }
