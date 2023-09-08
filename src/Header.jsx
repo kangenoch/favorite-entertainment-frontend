@@ -7,18 +7,16 @@ export function Header() {
       <nav class="navbar navbar-dark bg-primary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            Favorite Entertainment App{" "}
-            {localStorage.jwt === undefined ? (
-              <>{/* jwt is undefined */}</>
-            ) : (
-              <>
-                {/* jwt is defined */}
-                <h6>
-                  Hello, {localStorage.user_name}! {<Logout />}
-                </h6>
-              </>
-            )}
+            Favorite Entertainment App
           </a>
+          {localStorage.jwt === undefined ? (
+            <>{/* jwt is undefined */}</>
+          ) : (
+            <>
+              {/* jwt is defined */}
+              Hello, {localStorage.user_name}! <button>{<Logout />}</button>
+            </>
+          )}
           <button
             class="navbar-toggler"
             type="button"

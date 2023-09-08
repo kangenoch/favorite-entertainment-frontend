@@ -11,23 +11,30 @@ export function FavoritesIndex(props) {
 
   return (
     <>
-      <div>
-        <h2>Here are your favorite movies:</h2>
-      </div>
-      {/* Search Filter:
+      {localStorage.jwt === undefined ? (
+        <>{/* jwt is undefined */}</>
+      ) : (
+        <>
+          {/* jwt is defined */}
+          <div>
+            <h2>Here are your favorite movies:</h2>
+          </div>
+          {/* Search Filter:
       <input type="text" value={searchFilter} onChange={(e) => setSearchFilter(e.target.value)} list="favorites" /> */}
-      {props.favorites
-        .filter((favorite) => favorite.user_id == localStorage.getItem("user_id"))
-        .map((favorite) => (
-          <>
-            <div>
-              <li key={favorite.id}>Item_id: {favorite.item_id}</li>
-              <ItemShowOne item_id={favorite.item_id} />
-            </div>
+          {props.favorites
+            .filter((favorite) => favorite.user_id == localStorage.getItem("user_id"))
+            .map((favorite) => (
+              <>
+                <div>
+                  <li key={favorite.id}>Item_id: {favorite.item_id}</li>
+                  <ItemShowOne item_id={favorite.item_id} />
+                </div>
 
-            <p>&nbsp;</p>
-          </>
-        ))}
+                <p>&nbsp;</p>
+              </>
+            ))}
+        </>
+      )}
     </>
   );
 }
