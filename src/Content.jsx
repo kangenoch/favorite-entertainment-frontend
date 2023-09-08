@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 import axios from "axios";
 import { Signup } from "./Signup";
@@ -55,8 +56,8 @@ export function Content() {
 
   return (
     <div>
-      <h1>Favorite Entertainment App</h1>
-      <p>&nbsp;</p>
+      {/* <h1>Favorite Entertainment App</h1> */}
+      {/* <p>&nbsp;</p> */}
       <Signup />
       <p>&nbsp;</p>
       <Login />
@@ -64,7 +65,9 @@ export function Content() {
       <Logout />
       <p>&nbsp;</p>
 
-      <button onClick={handleShowItem}>Test Modal</button>
+      {/* <button class="btn btn-primary" onClick={handleShowItem}>
+        Test Modal
+      </button> */}
       <Modal show={isModalShowVisible} onClose={handleCloseItem}>
         <ItemsShow item={currentItem} />
       </Modal>

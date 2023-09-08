@@ -1,11 +1,23 @@
 /* eslint-disable react/no-unknown-property */
+import { Logout } from "./Logout.jsx";
+
 export function Header() {
   return (
     <header>
-      <nav class="navbar navbar-dark bg-dark">
+      <nav class="navbar navbar-dark bg-primary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            Navbar
+            Favorite Entertainment App{" "}
+            {localStorage.jwt === undefined ? (
+              <>{/* jwt is undefined */}</>
+            ) : (
+              <>
+                {/* jwt is defined */}
+                <h6>
+                  Hello, {localStorage.user_name}! {<Logout />}
+                </h6>
+              </>
+            )}
           </a>
           <button
             class="navbar-toggler"

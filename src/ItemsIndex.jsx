@@ -51,7 +51,7 @@ export function ItemsIndex(props) {
 
                         {/* <img src={item.image_url} width="200" /> */}
 
-                        <button onClick={() => props.onShowItem(item)}>
+                        <button class="btn btn-dark" onClick={() => props.onShowItem(item)}>
                           <img src={item.image_url} class="d-block w-100" alt="..." />
                         </button>
                       </div>
