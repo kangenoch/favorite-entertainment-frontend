@@ -22,6 +22,7 @@ export function Login() {
         localStorage.setItem("email", response.data.email);
         localStorage.setItem("user_id", response.data.user_id);
         localStorage.setItem("user_name", response.data.user_name);
+        localStorage.setItem("image_url", response.data.image_url);
         event.target.reset();
         window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
       })
@@ -40,6 +41,7 @@ export function Login() {
           {localStorage.removeItem("email")}
           {localStorage.removeItem("user_id")}
           {localStorage.removeItem("user_name")}
+          {localStorage.removeItem("image_url")}
           <div id="login">
             <h1>Login</h1>
             <ul>
@@ -61,7 +63,9 @@ export function Login() {
       ) : (
         <>
           {/* jwt is defined */}
-          Hello, {localStorage.user_name}! Your id is #{localStorage.user_id}.
+          <img src={localStorage.image_url} width="100" /> <br />
+          Hello, {localStorage.user_name}! <br />
+          Your id is #{localStorage.user_id}.
         </>
       )}
     </>

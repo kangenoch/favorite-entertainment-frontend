@@ -30,6 +30,7 @@ export function Signup() {
           {localStorage.removeItem("email")}
           {localStorage.removeItem("user_id")}
           {localStorage.removeItem("user_name")}
+          {localStorage.removeItem("image_url")}
 
           <div id="signup">
             <h1>Signup</h1>
