@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unreachable */
@@ -15,9 +16,14 @@ export function ItemsIndex(props) {
       Search Filter:
       <input type="text" value={searchFilter} onChange={(e) => setSearchFilter(e.target.value)} list="items" />
       <br />
+      {/* Now on, comments refer bottom codes.*/}
+      {/* grid starts */}
       <div class="container text-center">
+        {/* starting row */}
         <div class="row">
+          {/* adding empty column */}
           <div class="col">&nbsp;</div>
+          {/* starting main col-8 */}
           <div class="col-8">
             {props.items
               .filter((item) => item.name.toLowerCase().includes(searchFilter.toLowerCase()))
@@ -42,9 +48,13 @@ export function ItemsIndex(props) {
                   <p>&nbsp;</p>
                 </>
               ))}
+            {/* closing main col-8 */}
           </div>
+          {/* adding empty column */}
           <div class="col">&nbsp;</div>
+          {/* closing row */}
         </div>
+        {/* grid ends */}
       </div>
     </>
   );
