@@ -1,3 +1,18 @@
+#root {
+  color: white;
+  background-color: rgb(3, 4, 20);
+  /* background-image: url("carbon_fibre.webp"); */
+}
+
+body {
+  
+  
+  /* background-color: #cccccc; */
+  
+ }
+
 html {
   scroll-behavior: smooth;
+
 }
+
