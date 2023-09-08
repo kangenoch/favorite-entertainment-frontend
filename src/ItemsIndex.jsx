@@ -38,7 +38,7 @@ export function ItemsIndex(props) {
                 <div class="carousel-item active" data-bs-interval="100">
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpbI5MAGTZYd3HcFk1AsXe78Gu2lW0lVXw4Q&usqp=CAU"
-                    class="d-block w-100"
+                    class="img-thumbnail"
                     alt="Movie"
                   />
                 </div>
@@ -52,7 +52,7 @@ export function ItemsIndex(props) {
                         {/* <img src={item.image_url} width="200" /> */}
 
                         <button class="btn btn-dark" onClick={() => props.onShowItem(item)}>
-                          <img src={item.image_url} class="d-block w-100" alt="..." />
+                          <img src={item.image_url} class="img-thumbnail" alt="..." />
                         </button>
                       </div>
                     </>
