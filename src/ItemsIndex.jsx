@@ -44,12 +44,13 @@ export function ItemsIndex(props) {
                   list="items"
                 />
                 <br />
-                <div class="carousel-item active" data-bs-interval="100">
+                <div class="carousel-item active" data-bs-interval="1">
+                  {/* <h3>Title</h3>
                   <img
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpbI5MAGTZYd3HcFk1AsXe78Gu2lW0lVXw4Q&usqp=CAU"
-                    class="img-thumbnail"
+                    height="300"
                     alt="Movie"
-                  />
+                  /> */}
                 </div>
                 {props.items
                   .filter((item) => item.name.toLowerCase().includes(searchFilter.toLowerCase()))
@@ -58,19 +59,29 @@ export function ItemsIndex(props) {
                       <div class="carousel-item" data-bs-interval="2000">
                         <h3>{item.name}</h3>
 
-                        {/* <img src={item.image_url} width="200" /> */}
-
-                        <button class="btn btn-dark" onClick={() => props.onShowItem(item)}>
-                          <img src={item.image_url} class="img-thumbnail" alt="..." />
-                        </button>
-
-                        <form onSubmit={handleSubmit}>
-                          <input type="hidden" name="user_id" value={localStorage.user_id} />
-                          <input type="hidden" name="item_id" value={item.id} />
-                          <button type="submit" class="btn btn-primary">
-                            Add To Favorite
-                          </button>
-                        </form>
+                        <img src={item.image_url} height="500" />
+                        <br />
+                        <div class="container text-center">
+                          <div class="row">
+                            <div class="col"></div>
+                            <div class="col">
+                              <button class="btn btn-primary" onClick={() => props.onShowItem(item)}>
+                                {/* <img src={item.image_url} class="img-thumbnail" alt={item.image_url} /> */}More
+                                Information
+                              </button>
+                            </div>
+                            <div class="col">
+                              <form onSubmit={handleSubmit}>
+                                <input type="hidden" name="user_id" value={localStorage.user_id} />
+                                <input type="hidden" name="item_id" value={item.id} />
+                                <button type="submit" class="btn btn-primary">
+                                  Add To Favorite
+                                </button>
+                              </form>
+                            </div>
+                            <div class="col"></div>
+                          </div>
+                        </div>
                       </div>
                     </>
                   ))}

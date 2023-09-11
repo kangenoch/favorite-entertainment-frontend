@@ -61,7 +61,7 @@ export function Content() {
   }, []);
 
   return (
-    <div>
+    <div class="container">
       {/* <h1>Favorite Entertainment App</h1> */}
       {/* <p>&nbsp;</p> */}
       <Signup />

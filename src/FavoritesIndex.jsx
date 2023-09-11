@@ -4,11 +4,24 @@
 /* eslint-disable no-unreachable */
 import { useState } from "react";
 import { ItemShowOne } from "./ItemShowOne";
+import axios from "axios";
 
 export function FavoritesIndex(props) {
   console.log(props);
   const [searchFilter, setSearchFilter] = useState("");
-  // .filter((favorite) => favorite.user_id === props.currentUser.id)
+
+  const handleRemoveFromFavorite = (favorite) => {
+    console.log("handleRemoveFromFavorite", favorite);
+
+    axios.delete("http://localhost:3000/favorites/" + favorite + ".json").then((response) => {
+      // setFavorites(favorites.filter((f) => f.id !== favorite.id));
+      window.location.href = "/";
+    });
+  };
+
+  const handleClick = (event) => {
+    props.onRemoveFromFavorite(props.favorite);
+  };
 
   return (
     <>
@@ -35,6 +48,9 @@ export function FavoritesIndex(props) {
                     <div class="card text-bg-dark mb-3">
                       <ItemShowOne item_id={favorite.item_id} />
                       {/* <li key={favorite.id}>Item_id: {favorite.item_id}</li> */}
+                      <button class="btn btn-primary" onClick={() => handleRemoveFromFavorite(favorite.id)}>
+                        Remove From Favorite
+                      </button>
                     </div>
                   </div>
                   {/* card col ended */}

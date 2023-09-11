@@ -26,7 +26,7 @@ export function ItemShowOne(props) {
       {/* {() => handleIndexOneItem(props.item_id)} */}
       <div class="card text-bg-dark mb-3">
         <div class="card-title">{item.name}</div>
-        <img src={item.image_url} width="200" />
+        <img src={item.image_url} height="200" />
         {/* <br /> */}
       </div>
     </>
