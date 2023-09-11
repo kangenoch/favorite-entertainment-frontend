@@ -67,7 +67,9 @@ export function ItemsIndex(props) {
                         <form onSubmit={handleSubmit}>
                           <input type="hidden" name="user_id" value={localStorage.user_id} />
                           <input type="hidden" name="item_id" value={item.id} />
-                          <button type="submit">Add To Favorite</button>
+                          <button type="submit" class="btn btn-primary">
+                            Add To Favorite
+                          </button>
                         </form>
                       </div>
                     </>
