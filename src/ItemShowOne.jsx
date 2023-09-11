@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import axios from "axios";
@@ -23,10 +24,11 @@ export function ItemShowOne(props) {
       {/* <h3>Item_id: {props.item_id}</h3> */}
       {/* <button onClick={() => handleIndexOneItem(props.item_id)}>Show Item</button> */}
       {/* {() => handleIndexOneItem(props.item_id)} */}
-
-      <h3>{item.name}</h3>
-      <img src={item.image_url} width="200" />
-      <br />
+      <div class="card text-bg-dark mb-3">
+        <div class="card-title">{item.name}</div>
+        <img src={item.image_url} width="200" />
+        {/* <br /> */}
+      </div>
     </>
   );
 }

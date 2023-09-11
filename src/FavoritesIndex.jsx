@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unreachable */
@@ -21,18 +22,27 @@ export function FavoritesIndex(props) {
           </div>
           {/* Search Filter:
       <input type="text" value={searchFilter} onChange={(e) => setSearchFilter(e.target.value)} list="favorites" /> */}
-          {props.favorites
-            .filter((favorite) => favorite.user_id == localStorage.getItem("user_id"))
-            .map((favorite) => (
-              <>
-                <div>
-                  <li key={favorite.id}>Item_id: {favorite.item_id}</li>
-                  <ItemShowOne item_id={favorite.item_id} />
-                </div>
 
-                <p>&nbsp;</p>
-              </>
-            ))}
+          {/* card started */}
+          {/* card row started */}
+          <div class="row row-cols-3 row-cols-md-5  g-4">
+            {props.favorites
+              .filter((favorite) => favorite.user_id == localStorage.getItem("user_id"))
+              .map((favorite) => (
+                <>
+                  {/* card col started */}
+                  <div class="col">
+                    <div class="card text-bg-dark mb-3">
+                      <ItemShowOne item_id={favorite.item_id} />
+                      {/* <li key={favorite.id}>Item_id: {favorite.item_id}</li> */}
+                    </div>
+                  </div>
+                  {/* card col ended */}
+                </>
+              ))}
+            {/* card row ended */}
+          </div>
+          {/* card ended */}
         </>
       )}
     </>
