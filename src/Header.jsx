@@ -14,7 +14,9 @@ export function Header() {
           ) : (
             <>
               {/* jwt is defined */}
-              Hello, {localStorage.user_name}! <button>{<Logout />}</button>
+              <p>
+                Hello, {localStorage.user_name}! <button>{<Logout />}</button>
+              </p>
             </>
           )}
           <button
