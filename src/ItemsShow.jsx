@@ -25,7 +25,7 @@ export function ItemsShow(props) {
   return (
     <>
       <div>
-        <h1>Items Show</h1>
+        {/* <h1>Title: {props.item.name}</h1> */}
         {/* <form onSubmit={handleSubmit}> */}
         <ul>
           <h3>Title: {props.item.name}</h3>
@@ -35,6 +35,10 @@ export function ItemsShow(props) {
             Genre: {props.item.category}
           </ul>
           <ul>{props.item.description}</ul>
+
+          {/* <a href={"https://www.imdb.com/find/?q="+ {props.item.name}} target="_blank">
+            IMDB
+          </a> */}
         </ul>
         {/* <input type="hidden" name="user_id" value={localStorage.user_id} />
         <input type="hidden" name="item_id" value={props.item.id} /> */}
