@@ -49,6 +49,12 @@ export function Content() {
     setIsModalShowVisible(false);
   };
 
+  const handleAddToFavorite = (params) => {
+    axios.post("http://localhost:3000/favorites.json", params).then((response) => {
+      setFavorites([...favorites, response.data]);
+    });
+  };
+
   useEffect(() => {
     handleIndexItems();
     handleIndexFavorites();
@@ -74,7 +80,7 @@ export function Content() {
       <p>&nbsp;</p>
       <FavoritesIndex favorites={favorites} onShowFavorite={handleShowFavorite} />
       <p>&nbsp;</p>
-      <ItemsIndex items={items} onShowItem={handleShowItem} />
+      <ItemsIndex items={items} onShowItem={handleShowItem} onAddToFavorite={handleAddToFavorite} />
     </div>
   );
 }

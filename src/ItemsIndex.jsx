@@ -8,6 +8,15 @@ export function ItemsIndex(props) {
   console.log(props);
   const [searchFilter, setSearchFilter] = useState("");
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const params = new FormData(event.target);
+    props.onAddToFavorite(params);
+    console.log("handleSubmit", params);
+    // props.event.target.reset();
+    window.location.href = "/";
+  };
+
   return (
     <>
       <div>
@@ -54,6 +63,12 @@ export function ItemsIndex(props) {
                         <button class="btn btn-dark" onClick={() => props.onShowItem(item)}>
                           <img src={item.image_url} class="img-thumbnail" alt="..." />
                         </button>
+
+                        <form onSubmit={handleSubmit}>
+                          <input type="hidden" name="user_id" value={localStorage.user_id} />
+                          <input type="hidden" name="item_id" value={item.id} />
+                          <button type="submit">Add To Favorite</button>
+                        </form>
                       </div>
                     </>
                   ))}
