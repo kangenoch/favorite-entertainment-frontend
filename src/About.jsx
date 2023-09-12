@@ -4,7 +4,7 @@ export function About() {
       <h1>About</h1>
       <br />
       <p>This is the Actualize Capstone!</p>
-      <p>Back-end: Ruby on Rails / Front-end: React.JS</p>
+      <p>Back-end: Ruby on Rails / Front-end: React.JS + Vite</p>
     </div>
   );
 }
