@@ -20,27 +20,6 @@ export function Header() {
     <header>
       <nav class="navbar navbar-dark bg-primary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">
-            Favorite Entertainment App
-          </a>
-
-          {/* <Link to="/" className="navbar-brand">
-            Favorite Entertainment Movies
-          </Link> */}
-
-          {localStorage.jwt === undefined ? (
-            <>
-              {/* jwt is undefined */}
-              <div className="navbar-item">Please login or sign up!{/* <button>{<Logout />}</button> */}</div>
-            </>
-          ) : (
-            <>
-              {/* jwt is defined */}
-              <div className="navbar-item">
-                Hello, {localStorage.user_name}!{/* <button>{<Logout />}</button> */}
-              </div>
-            </>
-          )}
           <button
             class="navbar-toggler"
             type="button"
@@ -52,6 +31,30 @@ export function Header() {
           >
             <span class="navbar-toggler-icon"></span>
           </button>
+          <a class="navbar-brand" href="/">
+            Favorite Entertainment App
+          </a>
+
+          <div>
+            {/* <Link to="/" className="navbar-brand">
+            Favorite Entertainment Movies
+          </Link> */}
+
+            {localStorage.jwt === undefined ? (
+              <>
+                {/* jwt is undefined */}
+                <div className="navbar-item">Please login or sign up!{/* <button>{<Logout />}</button> */}</div>
+              </>
+            ) : (
+              <>
+                {/* jwt is defined */}
+                <div className="navbar-item">
+                  Hello, {localStorage.user_name}!{/* <button>{<Logout />}</button> */}
+                </div>
+              </>
+            )}
+          </div>
+
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
