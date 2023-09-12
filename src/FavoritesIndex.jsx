@@ -15,7 +15,7 @@ export function FavoritesIndex(props) {
 
     axios.delete("http://localhost:3000/favorites/" + favorite + ".json").then((response) => {
       // setFavorites(favorites.filter((f) => f.id !== favorite.id));
-      window.location.href = "/";
+      window.location.href = "/favorites";
     });
   };
 

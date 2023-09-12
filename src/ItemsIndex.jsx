@@ -84,15 +84,24 @@ export function ItemsIndex(props) {
                                 Information
                               </button>
                             </div>
-                            <div class="col">
-                              <form onSubmit={handleSubmit}>
-                                <input type="hidden" name="user_id" value={localStorage.user_id} />
-                                <input type="hidden" name="item_id" value={item.id} />
-                                <button type="submit" class="btn btn-primary">
-                                  Add To Favorite
-                                </button>
-                              </form>
-                            </div>
+
+                            {localStorage.jwt === undefined ? (
+                              <>{/* jwt is undefined */}</>
+                            ) : (
+                              <>
+                                {/* jwt is defined */}
+                                <div class="col">
+                                  <form onSubmit={handleSubmit}>
+                                    <input type="hidden" name="user_id" value={localStorage.user_id} />
+                                    <input type="hidden" name="item_id" value={item.id} />
+                                    <button type="submit" class="btn btn-primary">
+                                      Add To Favorite
+                                    </button>
+                                  </form>
+                                </div>
+                              </>
+                            )}
+
                             <div class="col"></div>
                           </div>
                         </div>
