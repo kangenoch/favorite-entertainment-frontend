@@ -5,7 +5,11 @@
 import { useState } from "react";
 
 export function ItemsIndex(props) {
-  console.log(props);
+  //console.log(props);
+
+  const [messages, setMessages] = useState("");
+  //const [status, setStatus] = useState(null);
+
   const [searchFilter, setSearchFilter] = useState("");
 
   const handleSubmit = (event) => {
@@ -13,12 +17,20 @@ export function ItemsIndex(props) {
     const params = new FormData(event.target);
     props.onAddToFavorite(params);
     console.log("handleSubmit", params);
+
+    setMessages("Selected Movie Added!!");
+    console.log(messages);
     // props.event.target.reset();
-    window.location.href = "/";
+    // window.location.href = "/";
   };
 
   return (
     <>
+      <p key={messages}>
+        {/* 16777215 means FFFFFF aka white */}
+        <font color={Math.floor(Math.random() * 16777215).toString(16)}>{messages}</font>
+      </p>
+
       <div>
         <h2>The Movie List</h2>
       </div>
