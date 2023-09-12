@@ -29,13 +29,14 @@ export function ItemsShow(props) {
         {/* <form onSubmit={handleSubmit}> */}
         <ul>
           <h3>Title: {props.item.name}</h3>
-          <ul>
-            <img src={props.item.image_url} width="300" />
-            <br />
-            Genre: {props.item.category}
-          </ul>
-          <ul>{props.item.description}</ul>
 
+          <ul>
+            Genre: {props.item.category}
+            <br />
+            <img src={props.item.image_url} width="300" />
+          </ul>
+          <br />
+          <ul>{props.item.description}</ul>
           {/* <a href={"https://www.imdb.com/find/?q="+ {props.item.name}} target="_blank">
             IMDB
           </a> */}

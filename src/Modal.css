@@ -23,6 +23,7 @@
 .modal-main button.close {
   font-size: 2em;
   background: none;
+  color: white;
   border: none;
   position: absolute;
   top: 0em; 
