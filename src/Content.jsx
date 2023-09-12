@@ -1,12 +1,17 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 import axios from "axios";
+import { useState, useEffect } from "react";
+
+import { Routes, Route } from "react-router-dom";
+import { About } from "./About";
+
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { Logout } from "./Logout";
 import { Modal } from "./Modal";
 import { ItemsIndex } from "./ItemsIndex";
-import { useState, useEffect } from "react";
+
 import { FavoritesIndex } from "./FavoritesIndex";
 import { ItemsShow } from "./ItemsShow";
 
@@ -64,23 +69,38 @@ export function Content() {
     <div class="container">
       {/* <h1>Favorite Entertainment App</h1> */}
       {/* <p>&nbsp;</p> */}
-      <Signup />
+
+      {/* <Signup />
       <p>&nbsp;</p>
       <Login />
       <p>&nbsp;</p>
       <Logout />
-      <p>&nbsp;</p>
+      <p>&nbsp;</p> */}
 
       {/* <button class="btn btn-primary" onClick={handleShowItem}>
         Test Modal
       </button> */}
+
       <Modal show={isModalShowVisible} onClose={handleCloseItem}>
         <ItemsShow item={currentItem} />
       </Modal>
-      <p>&nbsp;</p>
+
+      {/* <p>&nbsp;</p>
       <FavoritesIndex favorites={favorites} onShowFavorite={handleShowFavorite} />
-      <p>&nbsp;</p>
-      <ItemsIndex items={items} onShowItem={handleShowItem} onAddToFavorite={handleAddToFavorite} />
+      <p>&nbsp;</p> 
+      <ItemsIndex items={items} onShowItem={handleShowItem} onAddToFavorite={handleAddToFavorite} />   */}
+
+      <Routes>
+        <Route
+          path="/favorites"
+          element={<FavoritesIndex favorites={favorites} onShowFavorite={handleShowFavorite} />}
+        />
+        <Route
+          path="/"
+          element={<ItemsIndex items={items} onShowItem={handleShowItem} onAddToFavorite={handleAddToFavorite} />}
+        />
+        <Route path="/about" element={<About />} />
+      </Routes>
     </div>
   );
 }

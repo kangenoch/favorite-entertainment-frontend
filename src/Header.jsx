@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 import { Logout } from "./Logout.jsx";
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
@@ -55,7 +57,7 @@ export function Header() {
                 <ul class="dropdown-menu">
                   <li>
                     <a class="dropdown-item" href="#">
-                      Action
+                      <Link to="/about">About</Link>
                     </a>
                   </li>
                   <li>
