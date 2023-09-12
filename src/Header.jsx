@@ -111,7 +111,10 @@ export function Header() {
                     </>
                   ) : (
                     <>
-                      <li className="dropdown-item">Hello! {localStorage.email}</li>
+                      <li className="dropdown-item">
+                        <img src={localStorage.image_url} alt="profile_image" height="30"></img>
+                        {localStorage.user_name}, Your email address is {localStorage.email}{" "}
+                      </li>
                       <li>
                         <hr class="dropdown-divider" />
                       </li>
