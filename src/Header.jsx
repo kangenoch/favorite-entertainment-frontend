@@ -29,7 +29,10 @@ export function Header() {
           </Link> */}
 
           {localStorage.jwt === undefined ? (
-            <>{/* jwt is undefined */}</>
+            <>
+              {/* jwt is undefined */}
+              <div className="navbar-item">Please login or sign up!{/* <button>{<Logout />}</button> */}</div>
+            </>
           ) : (
             <>
               {/* jwt is defined */}
