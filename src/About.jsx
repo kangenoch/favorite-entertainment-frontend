@@ -2,7 +2,9 @@ export function About() {
   return (
     <div>
       <h1>About</h1>
-      <p>This is the Actualize Capstone</p>
+      <br />
+      <p>This is the Actualize Capstone!</p>
+      <p>Back-end: Ruby on Rails / Front-end: React.JS</p>
     </div>
   );
 }
