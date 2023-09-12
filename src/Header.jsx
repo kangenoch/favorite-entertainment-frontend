@@ -73,9 +73,12 @@ export function Header() {
                 ) : (
                   <>
                     <li className="nav-item">
-                      <Link to="/favorites" className="nav-link">
+                      {/* <Link to="/favorites" className="nav-link">
                         My Favorites
-                      </Link>
+                      </Link> */}
+                      <a className="nav-link" href="/favorites">
+                        My Favorites
+                      </a>
                     </li>
                   </>
                 )}
