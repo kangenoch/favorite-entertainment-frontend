@@ -1,24 +1,41 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
+import { useState } from "react";
+
 import { Logout } from "./Logout.jsx";
 import { Link } from "react-router-dom";
 
 export function Header() {
+  const [isSignupVisible, setIsSignupVisible] = useState(false);
+
+  const handleSignupShow = () => {
+    setIsSignupVisible(true);
+  };
+
+  const handleSignupClose = () => {
+    setIsSignupVisible(false);
+  };
+
   return (
     <header>
       <nav class="navbar navbar-dark bg-primary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             Favorite Entertainment App
           </a>
+
+          {/* <Link to="/" className="navbar-brand">
+            Favorite Entertainment Movies
+          </Link> */}
+
           {localStorage.jwt === undefined ? (
             <>{/* jwt is undefined */}</>
           ) : (
             <>
               {/* jwt is defined */}
-              <p>
-                Hello, {localStorage.user_name}! <button>{<Logout />}</button>
-              </p>
+              <div className="navbar-item">
+                Hello, {localStorage.user_name}!{/* <button>{<Logout />}</button> */}
+              </div>
             </>
           )}
           <button
@@ -35,15 +52,24 @@ export function Header() {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
+                <Link to="/about" className="nav-link">
+                  About
+                </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Link
-                </a>
+                {localStorage.jwt === undefined ? (
+                  <></>
+                ) : (
+                  <>
+                    <li className="nav-item">
+                      <Link to="/favorites" className="dropdown-item">
+                        My Favorites
+                      </Link>
+                    </li>
+                  </>
+                )}
               </li>
+
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -52,39 +78,56 @@ export function Header() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown
+                  Account
                 </a>
                 <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <Link to="/about">About</Link>
-                    </a>
-                  </li>
-                  <li>
+                  {/* <li>
                     <a class="dropdown-item" href="#">
                       Another action
                     </a>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Something else here
-                    </a>
-                  </li>
+                  </li> */}
+
+                  {localStorage.jwt === undefined ? (
+                    <>
+                      <li className="nav-item">
+                        <Link to="/signup" className="dropdown-item">
+                          Signup
+                        </Link>
+                      </li>
+                      <li>
+                        <hr class="dropdown-divider" />
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/login" className="dropdown-item">
+                          Login
+                        </Link>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      <li className="dropdown-item">Hello! {localStorage.email}</li>
+                      <li>
+                        <hr class="dropdown-divider" />
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/logout" className="dropdown-item">
+                          Logout
+                        </Link>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </li>
-              <li class="nav-item">
+              {/* <li class="nav-item">
                 <a class="nav-link disabled">Disabled</a>
-              </li>
+              </li> */}
             </ul>
-            <form class="d-flex" role="search">
+            {/* <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button class="btn btn-outline-success" type="submit">
                 Search
               </button>
-            </form>
+            </form> */}
           </div>
         </div>
       </nav>

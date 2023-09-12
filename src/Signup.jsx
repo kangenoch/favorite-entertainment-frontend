@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import axios from "axios";
 import { useState } from "react";
 
@@ -56,7 +57,9 @@ export function Signup() {
               <div>
                 Password confirmation: <input name="password_confirmation" type="password" />
               </div>
-              <button type="submit">Signup</button>
+              <button class="btn btn-primary" type="submit">
+                Signup
+              </button>
             </form>
           </div>
         </>

@@ -99,7 +99,11 @@ export function Content() {
           path="/"
           element={<ItemsIndex items={items} onShowItem={handleShowItem} onAddToFavorite={handleAddToFavorite} />}
         />
+
         <Route path="/about" element={<About />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </div>
   );

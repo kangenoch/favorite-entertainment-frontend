@@ -1,7 +1,7 @@
-export function About() {
+export function Index() {
   return (
     <div>
-      <h1>About</h1>
+      <h1>Index</h1>
       <p>This is the Actualize Capstone</p>
     </div>
   );

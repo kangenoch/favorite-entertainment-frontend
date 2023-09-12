@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import axios from "axios";
 
 export function Logout() {
@@ -23,10 +24,14 @@ export function Logout() {
       ) : (
         <>
           {/* jwt is defined */}
-
-          <a href="#" onClick={handleClick}>
+          <h2>Are you sure?</h2>
+          {/* <a href="#" onClick={handleClick}>
             Logout
-          </a>
+          </a> */}
+          <button class="btn btn-primary" onClick={handleClick}>
+            Logout
+          </button>
+          <p>&nbsp;</p>
         </>
       )}
     </>
