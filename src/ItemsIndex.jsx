@@ -20,7 +20,7 @@ export function ItemsIndex(props) {
   return (
     <>
       <div>
-        <h2>The Movie Database</h2>
+        <h2>The Movie List</h2>
       </div>
 
       {/* Now on, comments refer bottom codes.*/}
@@ -34,6 +34,7 @@ export function ItemsIndex(props) {
           <div class="col-8">
             {/* starting carousel */}
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+              <br />
               {/* starting inner carousel */}
               <div class="carousel-inner">
                 Search Filter:
@@ -44,6 +45,7 @@ export function ItemsIndex(props) {
                   list="items"
                 />
                 <br />
+                <p>&nbsp;</p>
                 <div class="carousel-item active" data-bs-interval="1">
                   {/* <h3>Title</h3>
                   <img

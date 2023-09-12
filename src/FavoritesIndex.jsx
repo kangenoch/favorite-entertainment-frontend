@@ -33,6 +33,7 @@ export function FavoritesIndex(props) {
           <div>
             <h2>Here are your favorite movies:</h2>
           </div>
+          <br />
           {/* Search Filter:
       <input type="text" value={searchFilter} onChange={(e) => setSearchFilter(e.target.value)} list="favorites" /> */}
 
